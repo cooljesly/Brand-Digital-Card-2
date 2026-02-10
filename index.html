@@ -14,38 +14,43 @@
 
         body { font-family: Arial, sans-serif; margin: 0; background: var(--bg-gray); color: #333; overflow-x: hidden; }
         
-        /* View Mode Fixes - Forced collapse of bottom spacing */
+        /* View Mode Fixes - Centered and Bordered */
         .view-mode .header, .view-mode .form-side { display: none !important; }
-        .view-mode { background: white; }
+        .view-mode { background: #f4f7f9; } /* Subtle background to show off the card border */
+        
         .view-mode .main-container { 
-            height: auto; 
-            min-height: unset; 
-            padding: 0; 
+            height: 100vh; 
+            display: flex !important; 
+            align-items: center; 
+            justify-content: center; 
+            padding: 20px; 
             margin: 0; 
-            display: block; 
-            background: white; 
+            box-sizing: border-box;
         }
+        
         .view-mode .preview-side { 
             width: 100%; 
+            max-width: 400px; /* Limits card width on larger mobile screens */
             padding: 0; 
-            height: auto; 
-            display: block; 
+            display: flex;
+            justify-content: center;
         }
+        
         .view-mode .phone-mockup { 
             width: 100%; 
-            max-width: 100%; 
             height: auto; 
-            min-height: unset;
-            border-radius: 0; 
-            box-shadow: none; 
+            border-radius: 20px; 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08); 
+            border: 1px solid #ddd; /* Thin stroke around card */
             position: relative; 
-            top: 0; 
-            display: block;
+            overflow: hidden;
+            background: white;
         }
+
         .view-mode .add-btn { 
-            margin-top: 40px; /* INCREASED GAP HERE */
+            margin-top: 40px; 
             margin-bottom: 0;
-            padding-bottom: calc(20px + env(safe-area-inset-bottom)); 
+            padding-bottom: 20px; 
         }
 
         .header { background: white; padding: 15px 50px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); font-weight: bold; }
