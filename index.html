@@ -14,41 +14,37 @@
 
         body { font-family: Arial, sans-serif; margin: 0; background: var(--bg-gray); color: #333; overflow-x: hidden; }
         
-        /* View Mode Hard Fix - Eliminates bottom scroll/space */
-        .view-mode, .view-mode body { 
-            height: 100%; 
-            overflow: hidden !important; 
-            background: white; 
-        }
+        /* View Mode Fixes - Forced collapse of bottom spacing */
         .view-mode .header, .view-mode .form-side { display: none !important; }
+        .view-mode { background: white; }
         .view-mode .main-container { 
-            height: 100%; 
+            height: auto; 
+            min-height: unset; 
             padding: 0; 
             margin: 0; 
-            display: flex;
-            flex-direction: column;
+            display: block; 
             background: white; 
         }
         .view-mode .preview-side { 
             width: 100%; 
             padding: 0; 
-            height: 100%; 
-            display: flex;
+            height: auto; 
+            display: block; 
         }
         .view-mode .phone-mockup { 
             width: 100%; 
             max-width: 100%; 
-            height: 100%; 
+            height: auto; 
+            min-height: unset;
             border-radius: 0; 
             box-shadow: none; 
             position: relative; 
             top: 0; 
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between; /* Pushes button to the very bottom */
+            display: block;
         }
         .view-mode .add-btn { 
-            margin-top: auto; /* Ensures it stays at the bottom of the container */
+            margin-top: 40px; 
+            margin-bottom: 0;
             padding-bottom: calc(20px + env(safe-area-inset-bottom)); 
         }
 
@@ -158,7 +154,7 @@
 
     <div class="preview-side">
         <div class="phone-mockup">
-            <div id="vc-view" class="no-photo" style="display: flex; flex-direction: column; flex-grow: 1;">
+            <div id="vc-view" class="no-photo" style="display: flex; flex-direction: column;">
                 <div class="card-header"><img src="Quadrangle.svg" id="display-logo" class="card-logo"></div>
                 <div class="profile-container" id="profile-cont"><img id="main-profile-pic" src="" class="profile-main"></div>
                 <div class="card-content">
@@ -186,7 +182,6 @@
 </div>
 
 <script>
-    // ... rest of the script is exactly the same ...
     const BRANDS = {
         quadrangle: { color: '#a31212', logo: 'Quadrangle.svg', logoWidth: '160px' },
         naukri: { color: '#1f70e0', logo: 'Naukri.svg', logoWidth: '160px' },
